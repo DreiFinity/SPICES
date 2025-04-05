@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spices</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    </style>
+    <style>
+      html {
+    scroll-behavior: smooth;
+    }
+        
+    </style>
+
+    
+</head>
+<body>
+  <nav class="sticky top-0 z-50 bg-[#333333] p-8 shadow-md">
+    <div class="flex items-center justify-between">
+        <div class="text-white text-2xl font-[Inter] font-semibold tracking-wide flex items-center gap-2">
+            <span class="text-[#D97706]">ALAB SPICES</span>
+        </div>
+        <div class="hidden md:flex gap-12">
+            <a href="#Home" class="text-white text-lg hover:underline">Home</a>
+            <a href="#About-us" class="text-white text-lg hover:underline">About</a>
+            <a href="#Products" class="text-white text-lg hover:underline">Products</a>
+            <a href="#Contact-us" class="text-white text-lg hover:underline">Contact</a>
+        </div>
+        <div class="flex gap-4 mr-4">
+            <a href="https://www.instagram.com" target="_blank" class="hover:opacity-80 transition duration-300">
+                <img src="/Logo/facebook-4-logo-svgrepo-com.svg" alt="Facebook" class="w-8 h-8">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="hover:opacity-80 transition duration-300">
+                <img src="/Logo/instagram-2016-logo-svgrepo-com.svg" alt="Instagram" class="w-8 h-8">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="hover:opacity-80 transition duration-300">
+                <img src="/Logo/twitter-svgrepo-com.svg" alt="Twitter" class="w-8 h-8">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<section class="relative bg-cover bg-center h-screen flex items-center justify-center" style="background-image: url('/Logo/ratul-ghosh-NPrWYa69Mz0-unsplash.jpg');" id="Home">
+    <div class="bg-black bg-opacity-50 p-10 text-center rounded-lg">
+        <h1 class="text-white text-4xl sm:text-5xl font-bold font-[Inter]">Discover the Essence of Flavor</h1>
+        <p class="text-gray-300 mt-4 text-lg">Experience the finest selection of spices to elevate your dishes.</p>
+        <button id="orderNowBtn" class="mt-6 inline-block bg-[#D97706] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#B25E04] transition duration-300">
+            Order Now
+        </button>
+    </div>
+</section>
+
+<!-- Popup Modal -->
+<div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-11/12 sm:w-96 text-center">
+        <h2 class="text-2xl font-semibold text-gray-800">Order Now</h2>
+        <p class="text-gray-600 mt-2">Please enter your details to proceed with your order.</p>
+
+        <!-- Combo Box (Dropdown for selecting a spice) -->
+        <select id="spiceSelect" class="mt-4 p-2 border rounded w-full">
+            <option value="" disabled selected>Select a Spice</option>
+            <option value="chili">Chili Powder</option>
+            <option value="turmeric">Turmeric</option>
+            <option value="paprika">Paprika</option>
+            <option value="cumin">Cumin</option>
+            <option value="cinnamon">Cinnamon</option>
+        </select>
+
+        <textarea class="form-control w-full mt-4 border" id="message" rows="3" placeholder="Type your message here"></textarea>
+
+        <!-- Numeric Up-Down (Quantity Selector) -->
+        <p class=" mt-2 w-full">Size in kg</p>
+        <div class="mt-4 flex items-center justify-center gap-2 w-full">
+            <button id="decreaseQty" class="bg-gray-300 px-3 py-2 rounded text-lg">−</button>
+            <input type="number" id="quantityInput" class="border p-2 w-16 text-center" value="1" min="1" max="100">
+            <button id="increaseQty" class="bg-gray-300 px-3 py-2 rounded text-lg">+</button>
+        </div>
+
+        <button class="mt-4 bg-[#D97706] text-white px-4 py-2 rounded-lg hover:bg-[#B25E04] transition duration-300 w-full" id="submitOrder">
+            Submit Order
+        </button>
+
+        <button id="closeModal" class="mt-4 text-gray-600 hover:text-gray-800 transition duration-300">Close</button>
+    </div>
+</div>
+
+    
+<!-- Spices Section -->
+<section class="py-16 bg-gray-100" id="Products">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Best Spices</h2>
+        <p class="text-lg text-gray-600 mb-12">Premium quality spices to enhance your culinary experience.</p>
+
+        <div class="grid md:grid-cols-3 gap-8 px-4">
+            <!-- Chili Powder -->
+            <div class="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <img src="/images/Garlig.webp" alt="Chili Powder" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Garlic</h3>
+                <p class="text-gray-600 mt-2">Adds a spicy kick to your favorite dishes.</p>
+            </div>
+
+            <!-- Turmeric -->
+            <div class="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <img src="/images/turmeric.jpg" alt="Turmeric" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Turmeric</h3>
+                <p class="text-gray-600 mt-2">Rich in antioxidants, perfect for curries and health benefits.</p>
+            </div>
+
+            <!-- Paprika -->
+            <div class="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <img src="/images/paprika.jpg" alt="Paprika" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Paprika</h3>
+                <p class="text-gray-600 mt-2">Mild and slightly sweet, great for seasoning meats.</p>
+            </div>
+
+            <!-- Cumin -->
+            <div class="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <img src="/images/cumin.jpg" alt="Cumin" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Cumin</h3>
+                <p class="text-gray-600 mt-2">Earthy and warm flavor, ideal for Indian and Middle Eastern cuisine.</p>
+            </div>
+
+            <!-- Cinnamon -->
+            <div class="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <img src="/images/cinnamon.webp" alt="Cinnamon" class="w-full h-40 object-cover rounded-md">
+                <h3 class="text-2xl font-semibold mt-4">Cinnamon</h3>
+                <p class="text-gray-600 mt-2">Aromatic spice perfect for desserts and beverages.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About Us Section -->
+<section id="About-us" class="py-16 bg-gray-100 px-6" >
+    <div class="container mx-auto md:grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- About Us Content -->
+        <div class="text-center md:text-left">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">About Alab Spices</h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Alab Spices brings you premium-quality, organic spices sourced from the best farms. 
+                We aim to enhance your cooking with rich flavors and natural ingredients.
+            </p>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                Whether you love bold, spicy flavors or subtle aromas, our selection will elevate your meals.
+            </p>
+            <a href="#" class="bg-[#D97706] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#B25E04] transition duration-300">
+                Learn More
+            </a>
+        </div>
+
+        <!-- About Us Image -->
+        <div class="flex justify-center">
+            <img src="/images/AboutUs_Logo.jpg" alt="About Alab Spices" class="w-full max-w-xl rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+        </div>
+
+
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">What Our Customers Say</h2>
+        <div class="relative max-w-3xl mx-auto overflow-hidden">
+            <div id="testimonialContainer" class="flex transition-transform duration-500 ease-in-out">
+                <div class="w-full flex-shrink-0 p-6">
+                    <p class="text-lg text-gray-600 italic">“Alab Spices has completely changed how I cook! The quality is unbeatable.”</p>
+                    <h4 class="text-xl font-semibold text-gray-800 mt-4">- Maria R.</h4>
+                </div>
+                <div class="w-full flex-shrink-0 p-6">
+                    <p class="text-lg text-gray-600 italic">“The flavors are so rich and fresh! I love their cinnamon.”</p>
+                    <h4 class="text-xl font-semibold text-gray-800 mt-4">- James K.</h4>
+                </div>
+                <div class="w-full flex-shrink-0 p-6">
+                    <p class="text-lg text-gray-600 italic">“I highly recommend Alab Spices! Perfect for any dish.”</p>
+                    <h4 class="text-xl font-semibold text-gray-800 mt-4">- Sophie L.</h4>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center mt-6">
+            <button id="prevTestimonial" class="bg-gray-300 px-4 py-2 rounded-l-lg">←</button>
+            <button id="nextTestimonial" class="bg-gray-300 px-4 py-2 rounded-r-lg">→</button>
+        </div>
+    </div>
+</section>
+
+
+<!-- Pricing Table Section -->
+<section class="py-16 bg-white px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-6">Spice Pricing</h2>
+      <p class="text-lg text-gray-600 mb-12">Choose your flavor – priced to spice up your meals affordably!</p>
+  
+      <div class="overflow-x-auto">
+        <table class="min-w-full border-collapse table-auto">
+          <thead>
+            <tr class="bg-[#F59E0B] text-white">
+              <th class="py-4 px-6 text-center text-lg font-semibold w-1/4">Spice</th>
+              <th class="py-4 px-6 text-center text-lg font-semibold w-1/2">Description</th>
+              <th class="py-4 px-6 text-center text-lg font-semibold w-1/4">Price (per kg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-4 px-6 text-gray-800 font-medium">Garlic</td>
+              <td class="py-4 px-6 text-gray-600">Adds a spicy kick to your favorite dishes.</td>
+              <td class="py-4 px-6 text-gray-800 font-semibold">₱350</td>
+            </tr>
+            <tr class="border-b bg-gray-50">
+              <td class="py-4 px-6 text-gray-800 font-medium">Turmeric</td>
+              <td class="py-4 px-6 text-gray-600">Rich in antioxidants, perfect for curries and health benefits.</td>
+              <td class="py-4 px-6 text-gray-800 font-semibold">₱300</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-4 px-6 text-gray-800 font-medium">Paprika</td>
+              <td class="py-4 px-6 text-gray-600">Mild and slightly sweet, great for seasoning meats.</td>
+              <td class="py-4 px-6 text-gray-800 font-semibold">₱280</td>
+            </tr>
+            <tr class="border-b bg-gray-50">
+              <td class="py-4 px-6 text-gray-800 font-medium">Cumin</td>
+              <td class="py-4 px-6 text-gray-600">Earthy and warm flavor, ideal for Indian and Middle Eastern cuisine.</td>
+              <td class="py-4 px-6 text-gray-800 font-semibold">₱320</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6 text-gray-800 font-medium">Cinnamon</td>
+              <td class="py-4 px-6 text-gray-600">Aromatic spice perfect for desserts and beverages.</td>
+              <td class="py-4 px-6 text-gray-800 font-semibold">₱310</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Delivery Information Section -->
+<section class="py-16 bg-white-100 px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-6">Delivery Information</h2>
+      <p class="text-lg text-gray-600 mb-12">Fast, convenient, and flexible delivery options just for you!</p>
+  
+      <div class="overflow-x-auto">
+        <table class="w-full max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+          <thead class="bg-[#D97706] text-white">
+            <tr>
+              <th class="text-center py-4 px-6 text-lg font-semibold">Delivery Option</th>
+              <th class="text-center py-4 px-6 text-lg font-semibold">Details</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b">
+              <td class="py-4 px-6">📍 Pickup Location</td>
+              <td class="py-4 px-6">#123 Spice Road, Flavorville City</td>
+            </tr>
+            <tr class="bg-gray-50 border-b">
+              <td class="py-4 px-6">🚚 Delivery Fee</td>
+              <td class="py-4 px-6">₱50 - ₱150 (depending on location)</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-6">⏳ Delivery Time</td>
+              <td class="py-4 px-6">1-2 days (standard orders), 3-5 days (custom blends)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+<!-- FAQ Section with Dropdown -->
+<section class="py-16 bg-white px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
+      <p class="text-lg text-gray-600 mb-12">Find answers to the most common questions about our products and services.</p>
+  
+      <div class="max-w-3xl mx-auto space-y-4">
+        <!-- FAQ Item 1 -->
+        <div class="border-b">
+          <button class="w-full text-left text-2xl font-semibold text-gray-800 py-4 flex justify-between items-center" onclick="toggleFAQ('faq1')">
+            <span>What are your best-selling spices?</span>
+            <svg id="icon1" class="w-6 h-6 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="faq1" class="text-lg text-gray-600 p-4 hidden">
+            Our top-selling spices include Chili Powder, Turmeric, and Paprika. They’re packed with flavor and perfect for every dish!
+          </div>
+        </div>
+  
+        <!-- FAQ Item 2 -->
+        <div class="border-b">
+          <button class="w-full text-left text-2xl font-semibold text-gray-800 py-4 flex justify-between items-center" onclick="toggleFAQ('faq2')">
+            <span>How do I place an order?</span>
+            <svg id="icon2" class="w-6 h-6 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="faq2" class="text-lg text-gray-600 p-4 hidden">
+            Simply click on the "Order Now" button on our homepage, select your spices, and fill in the details to place an order.
+          </div>
+        </div>
+  
+        <!-- FAQ Item 3 -->
+        <div class="border-b">
+          <button class="w-full text-left text-2xl font-semibold text-gray-800 py-4 flex justify-between items-center" onclick="toggleFAQ('faq3')">
+            <span>Do you offer international shipping?</span>
+            <svg id="icon3" class="w-6 h-6 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="faq3" class="text-lg text-gray-600 p-4 hidden">
+            Currently, we only ship within the Philippines, but we’re working on expanding our delivery options soon!
+          </div>
+        </div>
+  
+        <!-- FAQ Item 4 -->
+        <div class="border-b">
+          <button class="w-full text-left text-2xl font-semibold text-gray-800 py-4 flex justify-between items-center" onclick="toggleFAQ('faq4')">
+            <span>How can I track my order?</span>
+            <svg id="icon4" class="w-6 h-6 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="faq4" class="text-lg text-gray-600 p-4 hidden">
+            Once your order has been dispatched, you will receive a tracking number via email or SMS. You can use it to track your package in real-time.
+          </div>
+        </div>
+  
+        <!-- FAQ Item 5 -->
+        <div>
+          <button class="w-full text-left text-2xl font-semibold text-gray-800 py-4 flex justify-between items-center" onclick="toggleFAQ('faq5')">
+            <span>Are your spices organic?</span>
+            <svg id="icon5" class="w-6 h-6 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="faq5" class="text-lg text-gray-600 p-4 hidden">
+            Yes, all of our spices are sourced from organic farms to ensure high quality and freshness.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  </div>
+  
+  <section id="Contact-us" class="bg-white py-12 px-4 md:px-20 text-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-2 text-red-700">Contact Alab Spices</h2>
+      <p class="text-center text-gray-600 mb-10">Have questions? We’re here to help and spice things up!</p>
+  
+      <!-- Contact Info & Form -->
+      <div class="grid md:grid-cols-2 gap-10">
+        <!-- Info -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">📍 Our Branches</h4>
+          <ul class="space-y-4 text-sm">
+            <li><strong>Marayag, Jade St, Davao del Sur</strong><br>📞 0923 232 2323</li>
+            <li><strong>Davao City, Jade St, Davao del Sur</strong><br>📞 0923 232 2323</li>
+            <li><strong>Gensan City, Jade St, Davao del Sur</strong><br>📞 0923 232 2323</li>
+          </ul>
+  
+          <!-- Social Media -->
+          <div class="mt-8">
+            <h5 class="text-lg font-medium mb-2">🌐 Follow Us:</h5>
+            <div class="flex space-x-4 text-red-600">
+              <a href="https://www.facebook.com/" aria-label="Facebook">
+                <i class="fab fa-facebook text-2xl"></i>
+              </a>
+              <a href="https://www.instagram.com/" aria-label="Instagram">
+                <i class="fab fa-instagram text-2xl"></i>
+              </a>
+              <a href="https://x.com/" aria-label="Twitter / X">
+                <i class="fab fa-x-twitter text-2xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Form -->
+        <div>
+          <h4 class="text-xl font-semibold mb-4">✉️ Send Us a Message</h4>
+          <form action="https://formspree.io/f/mdkalqgq" method="POST" class="space-y-4">
+            <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+            <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
+            <textarea name="message" placeholder="Your Message" rows="4" required class="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md transition duration-200">Send Message</button>
+          </form>
+          <p id="success-message" class="hidden mt-2 text-green-600">Message sent successfully!</p>
+        </div>
+      </div>
+  
+      <!-- Map -->
+      <div class="mt-12 rounded-md">
+        <h4 class="text-xl font-semibold mb-4">📍 Find Us on Google Maps</h4>
+        <iframe class="w-full rounded-md shadow-md" height="300" loading="lazy" allowfullscreen
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.017554932362!2d120.98421857509856!3d14.599512785878176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c99d7b8b3f9b%3A0x4b2c67b8e99f80b6!2sManila%2C%20Metro%20Manila%2C%20Philippines!5e0!3m2!1sen!2sph!4v1647970721802!5m2!1sen!2sph">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+</body>
+</html>
